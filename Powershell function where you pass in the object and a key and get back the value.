@@ -1,0 +1,43 @@
+#Function call in Powershell .ps1
+
+function Get-Value {
+    param (
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        $Object,
+        
+        [Parameter(Mandatory = $true)]
+        [ValidateNotNullOrEmpty()]
+        [string]$Key
+    )
+
+    $keys = $Key -split '/'
+    $value = $Object
+    try {
+        foreach ($k in $keys) {
+            $value = $value.$k
+        }
+        return $value
+    } catch {
+        return $null
+    }
+}
+
+
+# Example 1
+$object1 = @{ "a" = @{ "b" = @{ "c" = "d" } } }
+$key1 = "a/b/c"
+$result1 = Get-Value -Object $object1 -Key $key1
+Write-Host $result1  
+# Output: d
+
+# Example 2
+$object2 = @{ "x" = @{ "y" = @{ "z" = "a" } } }
+$key2 = "x/y/z"
+$result2 = Get-Value -Object $object2 -Key $key2
+Write-Host $result2  
+# Output: a
+
+
+#The function splits the key parameter by '/' to obtain the individual keys. 
+#It then iterates over the keys, navigating through the nested objects to reach the desired value. If any of the keys are not found or if there's an error, the function returns $null.
