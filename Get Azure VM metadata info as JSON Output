@@ -1,0 +1,209 @@
+  #Challenge #2
+  #We need to write code that will query the meta data of an instance within AWS or Azure or GCP
+  #and provide a json formatted output.
+  
+  #Use AzureCLI to get output in JSON format. For example: Get Azure VM details in Resource group.
+  
+  $vmName = "RIshiVM"
+  $resourceGroup= "RishiRG"
+  az vm show --name $vmName --resource-group $resourceGroup
+
+  {
+    "additionalCapabilities": null,
+    "applicationProfile": null,
+    "availabilitySet": null,
+    "billingProfile": null,
+    "capacityReservation": null,
+    "diagnosticsProfile": {
+      "bootDiagnostics": {
+        "enabled": true,
+        "storageUri": "https://*****.blob.core.windows.net/"
+      }
+    },
+    "evictionPolicy": null,
+    "extendedLocation": null,
+    "extensionsTimeBudget": null,
+    "hardwareProfile": {
+      "vmSize": "Standard_E2s_v3",
+      "vmSizeProperties": null
+    },
+    "host": null,
+    "hostGroup": null,
+    "id": "/subscriptions/0****************sourceGroups/RishiRG/providers/Microsoft.Compute/virtualMachines/RIshiVM",
+    "identity": null,
+    "instanceView": null,
+    "licenseType": null,
+    "location": "centralindia",
+    "name": "RIshiVM",
+    "networkProfile": {
+      "networkApiVersion": null,
+      "networkInterfaceConfigurations": null,
+      "networkInterfaces": [
+        {
+          "deleteOption": null,
+          "id": "/subscriptions/*****************/resourceGroups/RishiRG/providers/Microsoft.Network/networkInterfaces/rishinic",
+          "primary": null,
+          "resourceGroup": "RishiRG"
+        }
+      ]
+    },
+    "osProfile": {
+      "adminPassword": null,
+      "adminUsername": "rishiadmin",
+      "allowExtensionOperations": true,
+      "computerName": "RIshiVM",
+      "customData": null,
+      "linuxConfiguration": null,
+      "requireGuestProvisionSignal": true,
+      "secrets": [],
+      "windowsConfiguration": {
+        "additionalUnattendContent": null,
+        "enableAutomaticUpdates": true,
+        "enableVmAgentPlatformUpdates": null,
+        "patchSettings": {
+          "assessmentMode": "ImageDefault",
+          "automaticByPlatformSettings": null,
+          "enableHotpatching": null,
+          "patchMode": "AutomaticByOS"
+        },
+        "provisionVmAgent": true,
+        "timeZone": null,
+        "winRm": null
+      }
+    },
+    "plan": null,
+    "platformFaultDomain": null,
+    "priority": null,
+    "provisioningState": "Succeeded",
+    "proximityPlacementGroup": null,
+    "resourceGroup": "RishiRG",
+    "resources": [
+      {
+        "autoUpgradeMinorVersion": true,
+        "enableAutomaticUpgrade": null,
+        "forceUpdateTag": null,
+        "id": "/subscriptions/*************/resourceGroups/RishiRG/providers/Microsoft.Compute/virtualMachines/RIshiVM/extensions/AzureNetworkWatcherExtension",
+        "instanceView": null,
+        "location": "centralindia",
+        "name": "AzureNetworkWatcherExtension",
+        "protectedSettings": null,
+        "protectedSettingsFromKeyVault": null,
+        "provisioningState": "Updating",
+        "publisher": "Microsoft.Azure.NetworkWatcher",
+        "resourceGroup": "RishiRG",
+        "settings": {},
+        "suppressFailures": null,
+        "tags": null,
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "typeHandlerVersion": "1.4",
+        "typePropertiesType": "NetworkWatcherAgentWindows"
+      },
+      {
+        "autoUpgradeMinorVersion": true,
+        "enableAutomaticUpgrade": null,
+        "forceUpdateTag": null,
+        "id": "/subscriptions/*****************/resourceGroups/RishiRG/providers/Microsoft.Compute/virtualMachines/RIshiVM/extensions/DependencyAgentWindows",
+        "instanceView": null,
+        "location": "centralindia",
+        "name": "DependencyAgentWindows",
+        "protectedSettings": null,
+        "protectedSettingsFromKeyVault": null,
+        "provisioningState": "Updating",
+        "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+        "resourceGroup": "RishiRG",
+        "settings": null,
+        "suppressFailures": null,
+        "tags": null,
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "typeHandlerVersion": "9.10",
+        "typePropertiesType": "DependencyAgentWindows"
+      },
+      {
+        "autoUpgradeMinorVersion": true,
+        "enableAutomaticUpgrade": null,
+        "forceUpdateTag": null,
+        "id": "/subscriptions/****************/resourceGroups/RishiRG/providers/Microsoft.Compute/virtualMachines/RIshiVM/extensions/MicrosoftMonitoringAgent",
+        "instanceView": null,
+        "location": "centralindia",
+        "name": "MicrosoftMonitoringAgent",
+        "protectedSettings": null,
+        "protectedSettingsFromKeyVault": null,
+        "provisioningState": "Updating",
+        "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+        "resourceGroup": "RishiRG",
+        "settings": {
+          "workspaceId": "***************"
+        },
+        "suppressFailures": null,
+        "tags": null,
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "typeHandlerVersion": "1.0",
+        "typePropertiesType": "MicrosoftMonitoringAgent"
+      },
+      {
+        "autoUpgradeMinorVersion": true,
+        "enableAutomaticUpgrade": null,
+        "forceUpdateTag": null,
+        "id": "/subscriptions/*******************/RishiRG/providers/Microsoft.Compute/virtualMachines/RIshiVM/extensions/VMAccessAgent",
+        "instanceView": null,
+        "location": "centralindia",
+        "name": "VMAccessAgent",
+        "protectedSettings": null,
+        "protectedSettingsFromKeyVault": null,
+        "provisioningState": "Updating",
+        "publisher": "Microsoft.Compute",
+        "resourceGroup": "RishiRG",
+        "settings": {
+          "UserName": "rishiadmin"
+        },
+        "suppressFailures": null,
+        "tags": null,
+        "type": "Microsoft.Compute/virtualMachines/extensions",
+        "typeHandlerVersion": "2.0",
+        "typePropertiesType": "VMAccessAgent"
+      }
+    ],
+    "scheduledEventsProfile": null,
+    "securityProfile": null,
+    "storageProfile": {
+      "dataDisks": [],
+      "diskControllerType": null,
+      "imageReference": {
+        "communityGalleryImageId": null,
+        "exactVersion": "17763.1158.2004131759",
+        "id": null,
+        "offer": "Windows-10",
+        "publisher": "MicrosoftWindowsDesktop",
+        "sharedGalleryImageId": null,
+        "sku": "rs5-pro",
+        "version": "latest"
+      },
+      "osDisk": {
+        "caching": "ReadWrite",
+        "createOption": "FromImage",
+        "deleteOption": null,
+        "diffDiskSettings": null,
+        "diskSizeGb": null,
+        "encryptionSettings": null,
+        "image": null,
+        "managedDisk": {
+          "diskEncryptionSet": null,
+          "id": "/subscriptions/***************/resourceGroups/RISHIRG/providers/Microsoft.Compute/disks/RIshiVM_OsDisk_1",
+          "resourceGroup": "RISHIRG",
+          "securityProfile": null,
+          "storageAccountType": null
+        },
+        "name": "RIshiVM_OsDisk_1",
+        "osType": "Windows",
+        "vhd": null,
+        "writeAcceleratorEnabled": false
+      }
+    },
+    "tags": null,
+    "timeCreated": "2023-07-06T10:31:10.521583+00:00",
+    "type": "Microsoft.Compute/virtualMachines",
+    "userData": null,
+    "virtualMachineScaleSet": null,
+    "vmId": "c0ef*****************",
+    "zones": null
+  }
